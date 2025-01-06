@@ -43,9 +43,7 @@ describe("Token", function () {
       const initialBalance = await token.balanceOf(owner.address);
       await token.transfer(recipient.address, 50);
 
-      expect(await token.balanceOf(owner.address)).to.equal(
-        initialBalance - 50n
-      );
+      expect(await token.balanceOf(owner.address)).to.equal(initialBalance - 50n);
       expect(await token.balanceOf(recipient.address)).to.equal(50);
     });
 
@@ -58,9 +56,7 @@ describe("Token", function () {
     it("Should fail if sender doesn't have enough tokens", async function () {
       const empty = token.connect(recipient) as Contract;
 
-      await expect(empty.transfer(owner.address, 1)).to.be.revertedWith(
-        "Not enough tokens"
-      );
+      await expect(empty.transfer(owner.address, 1)).to.be.revertedWith("Not enough tokens");
     });
   });
 });

@@ -1,0 +1,17 @@
+[
+    {
+        "contractName": "SECP256K1",
+        "contractPath": "contracts/secp256k1/Secp256k1.sol",
+        "missingLibraries": []
+    },
+    {
+        "contractName": "SECP256K1",
+        "contractPath": "contracts/secp256k1/Secp256k1.sol",
+        "missingLibraries": []
+    },
+    {
+        "contractName": "SECP256K1",
+        "contractPath": "contracts/secp256k1/Secp256k1.sol",
+        "missingLibraries": []
+    }
+]

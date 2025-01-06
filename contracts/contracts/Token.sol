@@ -7,7 +7,6 @@ pragma solidity ^0.8.20;
 // We import this library to be able to use console.log
 import "hardhat/console.sol";
 
-
 // This is the main building block for smart contracts.
 contract Token {
     // Some string type variables to identify the token.
@@ -51,12 +50,7 @@ contract Token {
 
         // We can print messages and values using console.log, a feature of
         // Hardhat Network:
-        console.log(
-            "Transferring from %s to %s %s tokens",
-            msg.sender,
-            to,
-            amount
-        );
+        console.log("Transferring from %s to %s %s tokens", msg.sender, to, amount);
 
         // Transfer the amount.
         balances[msg.sender] -= amount;

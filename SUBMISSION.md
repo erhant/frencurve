@@ -34,4 +34,8 @@ Github Repository: <https://github.com/erhant/frencurve>
 
 ## Preview Link
 
-TODO: !!!
+Live Preview: <https://frencurve.vercel.app/>
+
+## Screenshots
+
+![img](./img/Home.png)

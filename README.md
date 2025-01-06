@@ -2,6 +2,8 @@
 
 Built on [Lens Network](https://dev-preview.lens.xyz/docs/network/overview) for [Lens Holiday Hackathon](https://www.lens.xyz/news/lens-holiday-hackathon) using [ConnectKit](https://github.com/family/connectkit) and [Hardhat](https://dev-preview.lens.xyz/docs/network/getting-started/hardhat).
 
+![home](./img/Home.png)
+
 ## Curve Friendship
 
 Every account in EVM has an address, derived from a public key, derived from a private key. Public key is simply a coordinate on an "[elliptic-curve](https://www.rareskills.io/post/elliptic-curves-finite-fields)", so basically it is a point $(x, y) \in \mathbb{F}_p^2$ for some large prime $p$ such that it satisfies the following curve equation of [`secp256k1`](https://en.bitcoin.it/wiki/Secp256k1):

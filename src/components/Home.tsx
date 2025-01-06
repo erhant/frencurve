@@ -1,34 +1,28 @@
-import {
-  Container,
-  Stack,
-  Group,
-  Button,
-  TextInput,
-  Flex,
-} from "@mantine/core";
-import { ConnectKitButton } from "connectkit";
+import { Container, Stack, Button, TextInput } from "@mantine/core";
 import { useState } from "react";
 import { useAccount } from "wagmi";
-import WalletStatus from "./Wallet";
+import Header from "./Header";
 import { signMessage, writeContract } from "wagmi/actions";
 import { hashMessage, Hex, recoverPublicKey } from "viem";
-import { config } from "./wagmi";
-import abi from "./abi";
+import { config } from "../wagmi";
+
+import abi from "../abi";
 
 const CONTRACT_ADDRESS = "0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459";
-
+const MESSAGE_TO_SIGN = "i-wanna-make-frens";
 const Home = () => {
-  const { address } = useAccount();
+  const { address, isConnecting, isDisconnected } = useAccount();
   const [publicKey, setPublicKey] = useState<{ x: bigint; y: bigint }>();
   const [friendAddress, setFriendAddress] = useState<Hex>("0x");
 
   const handleSignature = async () => {
-    const signature = await signMessage(config, {
-      message: "i-wanna-make-frens",
-    });
-    const hash = hashMessage("i-wanna-make-frens");
+    const signature = await signMessage(config, { message: MESSAGE_TO_SIGN });
+    const hash = hashMessage(MESSAGE_TO_SIGN);
     const pubKey = await recoverPublicKey({ hash, signature });
+
+    // slice while skipping `0x04` at the start
     const [x, y] = [pubKey.slice(4, 68), pubKey.slice(68, 132)];
+
     setPublicKey({ x: BigInt(`0x${x}`), y: BigInt(`0x${y}`) });
   };
 
@@ -43,13 +37,8 @@ const Home = () => {
   };
 
   return (
-    <>
-      <Flex p="xs">
-        <Group justify="center">
-          <WalletStatus />
-          <ConnectKitButton showBalance />
-        </Group>
-      </Flex>
+    <Container p="sm" h="100vh">
+      <Header />
 
       <Container size="sm">
         <Stack gap="xl" align="center" mt={100}>
@@ -76,7 +65,7 @@ const Home = () => {
           )}
         </Stack>
       </Container>
-    </>
+    </Container>
   );
 };
 

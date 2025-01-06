@@ -39,10 +39,19 @@ Frencurve contract is deployed on [Lens Testnet](https://block-explorer.testnet.
 - `makeFrens(address, address)` with another address, permanently marking whether you are frens or not on chain!
 - call `frenships(address, address)` to read frenships of addresses.
 
-## Installation
+## Usage
+
+Install everything with:
 
 ```sh
 pnpm install
+```
+
+Then run with:
+
+```sh
+pnpm run dev
+# live at http://localhost:5173/
 ```
 
 ### Contracts

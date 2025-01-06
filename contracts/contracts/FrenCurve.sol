@@ -3,7 +3,6 @@ pragma solidity ^0.8.20;
 
 import {Math} from "@openzeppelin/contracts/utils/math/Math.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
-import "hardhat/console.sol";
 
 contract FrenCurve {
     /// @notice A struct to represent a public key.
@@ -36,7 +35,6 @@ contract FrenCurve {
         uint256 ydiff = y1 > y2 ? y1 - y2 : y2 - y1;
 
         uint256 ans = Math.average(xdiff, ydiff);
-        console.log("dist:", ans);
         return ans;
     }
 

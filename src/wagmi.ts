@@ -29,14 +29,13 @@ export const config = createConfig(
     connectors: [
       injected(),
       coinbaseWallet(),
-      walletConnect({ projectId: import.meta.env.VITE_WC_PROJECT_ID }),
+      walletConnect({ projectId: "" }),
     ],
     transports: {
       [lensTestnet.id]: http(),
     },
 
-    walletConnectProjectId:
-      process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "",
+    walletConnectProjectId: "",
 
     appName: "Frencurve",
     appDescription: "Make frens on elliptic curves.",

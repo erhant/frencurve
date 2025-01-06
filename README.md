@@ -20,16 +20,7 @@ $$
 \end{cases}
 $$
 
-and the distance function $\text{Dist}: \mathbb{F}_p \times \mathbb{F}_p \mapsto \{0, 1\}^{256}$ is defined as a generic distance function between two points on the curve over the respective field, such that the distance is mapped to a word in EVM.
-
-<!--
-```mermaid
-quadrantChart
-    title y^2 = x^3 + 3 (mod 23)
-```
--->
-
-So now, you and your friends can register on-chain, and unlock new potential use-cases with your mathematically provable friendship!
+and the distance function $\text{Dist}: \mathbb{F}_p \times \mathbb{F}_p \mapsto \{0, 1\}^{256}$ is defined as a generic distance function between two points on the curve over the respective field, such that the distance is mapped to a word in EVM. So now, you and your friends can register on-chain, and unlock new potential use-cases with your mathematically provable friendship!
 
 ## Contract
 

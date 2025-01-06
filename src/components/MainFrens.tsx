@@ -2,13 +2,15 @@ import { Button, Stack } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import abi from "../abi";
-import { CONTRACT_ADDRESS } from "./Home";
 import { readContract } from "wagmi/actions";
 import { config } from "../wagmi";
 import { signMessage, writeContract } from "wagmi/actions";
-import { hashMessage, Hex, recoverPublicKey } from "viem";
+import { hashMessage, recoverPublicKey } from "viem";
 import MakeFrens from "./MakeFrens";
-import CheckFrens from "./CheckFrens";
+import CheckFrenship from "./CheckFrenship";
+
+// https://block-explorer.testnet.lens.dev/address/0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459#contract
+export const CONTRACT_ADDRESS = "0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459";
 
 const MESSAGE_TO_SIGN = "i-wanna-make-frens";
 
@@ -53,7 +55,7 @@ const MainFrens = () => {
     return (
       <Stack gap="xl" align="center" mt={100}>
         <MakeFrens />
-        <CheckFrens />
+        <CheckFrenship />
       </Stack>
     );
   } else {

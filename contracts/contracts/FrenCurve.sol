@@ -19,7 +19,7 @@ contract FrenCurve {
         NotFrens
     }
 
-    uint256 public constant FRENSHIP_THRESHOLD = 1 ether;
+    uint256 public constant FRENSHIP_THRESHOLD = type(uint256).max >> 1;
 
     mapping(address => PublicKey) public publicKeys;
     mapping(address => mapping(address => Frenship)) public frenships;
@@ -29,23 +29,22 @@ contract FrenCurve {
     /// @param y1 The y coordinate of the first point.
     /// @param x2 The x coordinate of the second point.
     /// @param y2 The y coordinate of the second point.
-    /// @return The distance (Euclidean) between the two points.
+    /// @return The average 1-D distance between the two points.
 
     function dist(uint256 x1, uint256 y1, uint256 x2, uint256 y2) public pure returns (uint256) {
-        (bool xdiffOk, uint256 xdiff) = Math.trySub(x2, x1);
-        (bool ydiffOk, uint256 ydiff) = Math.trySub(y2, y1);
-        (bool xsqOk, uint256 xdiffSquared) = Math.tryMul(xdiff, xdiff);
-        (bool ysqOk, uint256 ydiffSquared) = Math.tryMul(ydiff, ydiff);
-        (bool preSqOk, uint256 preSq) = Math.tryAdd(xdiffSquared, ydiffSquared);
+        uint256 xdiff = x1 > x2 ? x1 - x2 : x2 - x1;
+        uint256 ydiff = y1 > y2 ? y1 - y2 : y2 - y1;
 
-        return Math.sqrt(preSq);
+        uint256 ans = Math.average(xdiff, ydiff);
+        console.log("dist:", ans);
+        return ans;
     }
 
     function fren(PublicKey memory p, PublicKey memory q, uint256 t) public pure returns (bool) {
         return dist(p.x, p.y, q.x, q.y) < t;
     }
 
-    function makeFren(address a, address b) external returns (bool) {
+    function makeFrens(address a, address b) external returns (bool) {
         PublicKey memory pkA = publicKeys[a];
         require(pkA.y != 0, "FrenCurve: Public key A is not registered");
         PublicKey memory pkB = publicKeys[b];

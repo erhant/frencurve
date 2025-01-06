@@ -1,5 +1,4 @@
 import { http, createConfig } from "wagmi";
-import { sepolia } from "wagmi/chains";
 import { getDefaultConfig } from "connectkit";
 import { coinbaseWallet, injected, walletConnect } from "wagmi/connectors";
 import { defineChain } from "viem";
@@ -26,27 +25,23 @@ const lensTestnet = defineChain({
 
 export const config = createConfig(
   getDefaultConfig({
-    chains: [sepolia, lensTestnet],
+    chains: [lensTestnet],
     connectors: [
       injected(),
       coinbaseWallet(),
       walletConnect({ projectId: import.meta.env.VITE_WC_PROJECT_ID }),
     ],
     transports: {
-      // RPC URL for each chain
-      [sepolia.id]: http(),
       [lensTestnet.id]: http(),
     },
-    // Required API Keys
+
     walletConnectProjectId:
       process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID ?? "",
 
-    // Required App Info
-    appName: "Your App Name",
-    // Optional App Info
-    appDescription: "Your App Description",
-    appUrl: "https://family.co", // your app's url
-    appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+    appName: "Frencurve",
+    appDescription: "Make frens on elliptic curves.",
+    appUrl: "https://family.co",
+    appIcon: "https://family.co/logo.png",
   })
 );
 

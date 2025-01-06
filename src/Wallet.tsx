@@ -1,7 +1,6 @@
-import { ConnectKitButton } from "connectkit";
 import { useAccount } from "wagmi";
 
-const Wallet = (): JSX.Element => {
+const WalletStatus = (): JSX.Element => {
   const { address, isConnecting, isDisconnected, chain } = useAccount();
   let status = (
     <div>
@@ -11,12 +10,7 @@ const Wallet = (): JSX.Element => {
   if (isConnecting) status = <div>Connecting...</div>;
   if (isDisconnected) status = <div>Disconnected</div>;
 
-  return (
-    <div>
-      <ConnectKitButton showBalance />
-      {status}
-    </div>
-  );
+  return <div>{status}</div>;
 };
 
-export default Wallet;
+export default WalletStatus;

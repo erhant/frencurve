@@ -2,6 +2,8 @@
 
 See [LEGACY](./LEGACY.md) for the legacy README.
 
+<!-- deployed at: 0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459 -->
+
 ## Installation
 
 Install dependencies:

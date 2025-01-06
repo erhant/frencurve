@@ -15,8 +15,8 @@ A curve-friendship for a pair of points $p, q$ some value threshold `t` is defin
 $$
 \text{Fren}(p, q) =
 \begin{cases}
-  1 & \text{Dist}(p, q) \leq t \\
-  0 & \text{Dist}(p, q) > t
+  1 & \text{Dist}(p, q) < t \\
+  0 & \text{Dist}(p, q) \geq t
 \end{cases}
 $$
 
@@ -31,30 +31,13 @@ quadrantChart
 
 So now, you and your friends can register on-chain, and unlock new potential use-cases with your mathematically provable friendship!
 
-## Getting the Public Key
+## Contract
 
-You can get the public key of a user from a transaction alone using Ethers with a snippet such as:
+Frencurve contract is deployed on [Lens Testnet](https://block-explorer.testnet.lens.dev/address/0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459#transactions). You can interact with it as follows:
 
-```ts
-import { SigningKey, Transaction, computeAddress } from "ethers";
-
-// ...
-
-const receipt = await txToWait.wait();
-if (receipt) {
-  // recover & check public key
-  const tx = await receipt.getTransaction();
-  const signature = tx.signature;
-  const digest = Transaction.from(tx).unsignedHash;
-  const publicKey = SigningKey.recoverPublicKey(digest, signature);
-  const compressedPublicKey = PublicKey.fromHex(publicKey).compressed;
-  expect("0x" + compressedPublicKey.toString("hex")).to.equal(user.publicKey);
-
-  // check address
-  const addrRecovered = computeAddress(publicKey);
-  expect(addrRecovered).to.equal(user.address);
-}
-```
+- `register({x, y})` with the coordinates of your public key, using the corresponding wallet.
+- `makeFrens(address, address)` with another address, permanently marking whether you are frens or not on chain!
+- call `frenships(address, address)` to read frenships of addresses.
 
 ## Installation
 
@@ -70,6 +53,6 @@ We are using the template, initialized with:
 git clone --depth=1 --branch=master git@github.com:lens-protocol/lens-network-hardhat-boilerplate.git contracts && rm -rf ./contracts/.git
 ```
 
-For this part, readh the [README](./contracts/README.md) within the contracts folder.
+For this part, read the [README](./contracts/README.md) within the contracts folder.
 
 <!-- This is a [Vite](https://vitejs.dev) project bootstrapped with [`create-wagmi`](https://github.com/wevm/wagmi/tree/main/packages/create-wagmi). -->

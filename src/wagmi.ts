@@ -4,7 +4,8 @@ import { getDefaultConfig } from "connectkit";
 import { coinbaseWallet, injected, walletConnect } from "wagmi/connectors";
 import { defineChain } from "viem";
 
-export const lensTestnet = defineChain({
+// https://dev-preview.lens.xyz/docs/network/using-lens-network
+const lensTestnet = defineChain({
   id: 37_111,
   name: "Lens Network Sepolia Testnet",
   nativeCurrency: { name: "Lens Sepolia Ether", symbol: "GRASS", decimals: 18 },

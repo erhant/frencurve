@@ -28,6 +28,9 @@ Since these are points, they have some distance between them as well! With that,
 
 This project implements the required contract & frontend to implement friendship over elliptic-curves, which may pave new friendship dynamics built upon cryptography.
 
+- [Contract on Testnet](https://block-explorer.testnet.lens.dev/address/0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459#contract)
+- [Jokerace Entry](https://jokerace.io/contest/polygon/0x552bdf3d0acfa0bc398607fd675d3b4cce6aabdf/submission/70592271744613817044400087847213095324107207545920898777206167711444430925570)
+
 ## Source Code Link
 
 Github Repository: <https://github.com/erhant/frencurve>

@@ -1,5 +1,5 @@
 import { Button, TextInput, Title } from "@mantine/core";
-import { useState } from "react";
+import { useState, FC } from "react";
 import { useAccount } from "wagmi";
 import abi from "../abi";
 import { CONTRACT_ADDRESS } from "./MainFrens";
@@ -7,7 +7,7 @@ import { config } from "../wagmi";
 import { writeContract } from "wagmi/actions";
 import type { Hex } from "viem";
 
-const MakeFrens = () => {
+const MakeFrens: FC = () => {
   const { address } = useAccount();
   const [friendAddress, setFriendAddress] = useState<Hex>();
 

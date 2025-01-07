@@ -4,18 +4,21 @@ pragma solidity ^0.8.20;
 import {Math} from "@openzeppelin/contracts/utils/math/Math.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 
+/// A frenship status.
+public enum Frenship {
+    None,
+    Frens,
+    NotFrens
+}
+
+/// @title FrenCurve
+/// @notice A contract that implements the FrenCurve protocol.
+/// @dev The FrenCurve protocol is a way to determine if two public keys are frens (friends).
 contract FrenCurve {
     /// @notice A struct to represent a public key.
     struct PublicKey {
         uint256 x;
         uint256 y;
-    }
-
-    /// A frenship status.
-    enum Frenship {
-        None,
-        Frens,
-        NotFrens
     }
 
     uint256 public constant FRENSHIP_THRESHOLD = type(uint256).max >> 1;

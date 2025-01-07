@@ -48,6 +48,7 @@ We support the following networks:
 - `hardhat`: runs on a ZKsync [In-Memory Node](https://docs.zksync.io/build/test-and-debug/in-memory-node) for testing.
 
 > [!TIP]
+>
 > zkSync In-memory Node currently supports only the L2 node. If contracts also need L1, use another testing environment like [Dockerized Node](https://docs.zksync.io/build/test-and-debug/dockerized-l1-l2-nodes).
 
 ### Deploy <!-- omit in toc -->

@@ -1,5 +1,5 @@
 import { Button, Text, TextInput, Title } from "@mantine/core";
-import { useState } from "react";
+import { useState, FC } from "react";
 import { useAccount } from "wagmi";
 import abi from "../abi";
 import { CONTRACT_ADDRESS } from "./MainFrens";
@@ -13,7 +13,7 @@ enum Frenship {
   NotFrens,
 }
 
-const CheckFrenship = () => {
+const CheckFrenship: FC = () => {
   const { address } = useAccount();
   const [friendAddress, setFriendAddress] = useState<Hex>();
   const [frenshipStatus, setFrenshipStatus] = useState<Frenship>();

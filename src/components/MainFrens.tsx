@@ -1,5 +1,5 @@
 import { Button, Stack } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useEffect, useState, FC } from "react";
 import { useAccount } from "wagmi";
 import abi from "../abi";
 import { readContract } from "wagmi/actions";
@@ -12,9 +12,10 @@ import CheckFrenship from "./CheckFrenship";
 // https://block-explorer.testnet.lens.dev/address/0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459#contract
 export const CONTRACT_ADDRESS = "0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459";
 
+// can be anything arbitrary
 const MESSAGE_TO_SIGN = "i-wanna-make-frens";
 
-const MainFrens = () => {
+const MainFrens: FC = () => {
   const { address } = useAccount();
   const [isRegistered, setIsRegistered] = useState(false);
 

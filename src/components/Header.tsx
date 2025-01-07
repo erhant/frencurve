@@ -1,7 +1,8 @@
 import { Group, Stack, Text, Title } from "@mantine/core";
 import { ConnectKitButton } from "connectkit";
+import type { FC } from "react";
 
-const Header = (): JSX.Element => {
+const Header: FC = () => {
   return (
     <Group p="xs">
       <Stack gap="xs">

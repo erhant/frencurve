@@ -1,10 +1,11 @@
 import { Container } from "@mantine/core";
 import { useAccount } from "wagmi";
 import Header from "./Header";
+import type { FC } from "react";
 
 import Register from "./MainFrens";
 
-const Home = () => {
+const Home: FC = () => {
   const { isConnected } = useAccount();
 
   return (

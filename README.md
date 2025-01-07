@@ -24,6 +24,10 @@ $$
 
 and the distance function $\text{Dist}: \mathbb{F}_p \times \mathbb{F}_p \mapsto \{0, 1\}^{256}$ is defined as a generic distance function between two points on the curve over the respective field, such that the distance is mapped to a word in EVM. So now, you and your friends can register on-chain, and unlock new potential use-cases with your mathematically provable friendship!
 
+<img src="https://static.learnmeabitcoin.com/technical/cryptography/elliptic-curve/sage-elliptic-curve-finite-field-2503.png" width="500">
+
+Here is a picture from [learnmeabitcoin](https://learnmeabitcoin.com/technical/cryptography/elliptic-curve/), where it shows how the points on a curve look like in a finite field. Basically if you are close to other points on this curve, you are friends with them!
+
 ## Contracts
 
 Frencurve contract is deployed on [Lens Testnet](https://block-explorer.testnet.lens.dev/address/0x4D9058C198c1c9433612F6dA4f271Ee7D7eB0459#transactions). You can interact with it as follows:
